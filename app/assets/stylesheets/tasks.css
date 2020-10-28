@@ -80,11 +80,100 @@
   position: relative;
   top: 5px;
   left: 5px;
-
 }
 
 .main {
-  background-color: rgb(188, 198, 241);
-  height: calc(100vh - 100px);
-  width: 100%;
+  background-color: #fafafa;
+}
+
+.inner {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.page-heading {
+  font-size: 30px;
+  margin-bottom: 28px;
+}
+
+.card__wrapper {
+  background-color: #fafafa;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: calc(100vh - 188px);
+}
+
+.title {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.edit-btn {
+}
+
+.edit-btn a {
+  border: 1px solid darkred;
+  background-color: rgba(0, 162, 255, 0.863);
+  color: darkred;
+  padding: 5px;
+  border-radius: 3px;
+  box-shadow: 2px 2px black;
+  text-decoration: none;
+}
+
+.edit-btn :active {
+  box-shadow: none;
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+.card {
+  width: calc((100% - 50px) / 2);
+  margin-bottom: 40px;
+  height: 250px;
+  overflow: scroll;
+}
+
+.task-index {
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+}
+
+.task-name {
+  width: 200px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid black;
+  text-align: center;
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+.person-in-charge {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.plan {
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.completion_date {
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid black;
+  text-align: center;
 }

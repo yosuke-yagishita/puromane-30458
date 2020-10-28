@@ -1,4 +1,11 @@
 <div class="wrapper">
   <%= render "header"%>
-  <%= render "main_project"%>
+  <div class="main">
+    <div class="inner">
+      <h1 class="page-heading"><%= "hoge" %>のプロジェクト一覧</h1>
+      <div class="card__wrapper">
+        <%= render "main_project"%>
+      </div>
+    </div>
+  </div>
 </div>
