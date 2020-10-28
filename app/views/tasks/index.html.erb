@@ -1,2 +1,11 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<div class="wrapper">
+  <%= render "header"%>
+  <div class="main">
+    <div class="inner">
+      <h1 class="page-heading"><%= "hoge" %>のプロジェクト一覧</h1>
+      <div class="card__wrapper">
+        <%= render "main_project"%>
+      </div>
+    </div>
+  </div>
+</div>
