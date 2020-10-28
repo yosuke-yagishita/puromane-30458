@@ -1,0 +1,90 @@
+.wrpper {
+  display: flex;
+}
+
+.main-header {
+  display: flex;
+  height: 100px;
+}
+
+.left-header {
+  background-color: #253141;
+  width: 300px;
+  height: 100px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-name {
+  display: flex;
+  margin: 0, auto;
+}
+
+.app-name a {
+  color: #fafafa;
+  font-size: 34px;
+  text-decoration: none;
+}
+
+.right-header {
+  background-color: #2f3e51;
+  height: 100px;
+  width: calc(100% - 300px);
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-name {
+  font-size: 20px;
+  color: #fafafa;
+  margin-top:  40px;
+  width: 300px;
+  text-align: center;
+}
+
+.user-name a {
+  color: #fafafa;
+  text-decoration: none;
+}
+
+.create-project {
+  width: 100%;
+  display: flex;
+  text-align: center;
+}
+
+
+.create-project a {
+  border: 1px solid darkred;
+  background-color: rgba(0, 162, 255, 0.863);
+  color: darkred;
+  width: 100%;
+  border-radius: 10px;
+  margin: 20px;
+  text-decoration: none;
+  font-size: 34px;
+  line-height: 60px;
+  letter-spacing: 20px;
+  box-shadow: 5px 5px black;
+}
+
+.create-project :hover {
+  background-color: rgb(0, 191, 255);
+}
+
+.create-project :active {
+  box-shadow: none;
+  position: relative;
+  top: 5px;
+  left: 5px;
+
+}
+
+.main {
+  background-color: rgb(188, 198, 241);
+  height: calc(100vh - 100px);
+  width: 100%;
+}
