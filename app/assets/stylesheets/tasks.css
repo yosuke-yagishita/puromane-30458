@@ -38,16 +38,30 @@
 }
 
 .user-name {
-  font-size: 20px;
   color: #fafafa;
-  margin-top:  40px;
   width: 300px;
   text-align: center;
 }
 
-.user-name a {
+.user-name-display {
+  margin-top:  20px;
+}
+
+.user-name-display a {
   color: #fafafa;
+  font-size: 20px;
   text-decoration: none;
+}
+
+.logout-btn {
+  margin-top:  10px;
+}
+
+.logout-btn a {
+  color: #f05050;
+  font-size: 12px;
+  text-decoration: none;
+
 }
 
 .create-project {
