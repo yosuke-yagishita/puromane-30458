@@ -25,27 +25,27 @@ RSpec.describe User, type: :model do
       it 'nicknameが空だと登録できないこと' do
         @user.nickname = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname can't be blank")  
+        expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
       it 'family_nameが空だと登録できないこと' do
         @user.family_name = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name can't be blank")  
+        expect(@user.errors.full_messages).to include("Family name can't be blank")
       end
       it 'first_nameが空だと登録できないこと' do
         @user.first_name = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name can't be blank")  
+        expect(@user.errors.full_messages).to include("First name can't be blank")
       end
       it 'emailが空だと登録できないこと' do
         @user.email = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email can't be blank")  
+        expect(@user.errors.full_messages).to include("Email can't be blank")
       end
       it 'emailに@が無いと登録できないこと' do
         @user.email = 'email'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")  
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it '重複したemailでは登録できないこと' do
         @user.save
@@ -58,36 +58,36 @@ RSpec.describe User, type: :model do
         @user.password = ''
         @user.password_confirmation = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password can't be blank")  
+        expect(@user.errors.full_messages).to include("Password can't be blank")
       end
       it 'passwordが全角文字だと登録できないこと' do
         @user.password = 'ａｂｃ１２３'
         @user.password_confirmation = 'ａｂｃ１２３'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password can't be full-width characters")  
+        expect(@user.errors.full_messages).to include("Password can't be full-width characters")
       end
       it 'passwordが特殊文字では登録できないこと' do
         @user.password = '!!!!!!'
         @user.password_confirmation = '!!!!!!'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password can't be full-width characters")  
+        expect(@user.errors.full_messages).to include("Password can't be full-width characters")
       end
       it 'passwordは6文字以上の入力がないと登録できないこと' do
         @user.password = 'abc45'
         @user.password_confirmation = 'abc45'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")  
+        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'passwordは確認用含めて２回入力しないと登録できないこと' do
         @user.password_confirmation = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")  
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
       it 'passwordとpassword_confirmationが一致しないと登録できないこと' do
         @user.password = 'abc123'
         @user.password_confirmation = 'ABC123'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")  
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
     end
   end

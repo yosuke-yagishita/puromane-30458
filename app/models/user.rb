@@ -11,10 +11,6 @@ class User < ApplicationRecord
     validates :first_name
 
     PASSWORD_REGEX = /\A[0-9a-zA-Z]+\z/i.freeze
-    validates_format_of :password, with: PASSWORD_REGEX, message: "can't be full-width characters"  
-  
+    validates_format_of :password, with: PASSWORD_REGEX, message: "can't be full-width characters"
   end
-
-
-
 end
