@@ -9,8 +9,13 @@
     <div class="create-project">
       <%= link_to "プロジェクトを作成する", "#" %>
     </div>
-        <div class="user-name">
-      <%= link_to "ユーザー：hoge", "#"%>
+    <div class="user-name">
+      <div class="user-name-display">
+        <%= link_to "ユーザー：#{current_user.nickname}", user_path(current_user) %>
+      </div>
+      <div class="logout-btn">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </div>
     </div>
   </div>
 </div>
