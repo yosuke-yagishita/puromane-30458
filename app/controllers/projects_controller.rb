@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+
   def index
   end
 
@@ -18,7 +19,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, user_ids:[])
+    params.require(:project).permit(:name, user_ids: [])
   end
 
 end
