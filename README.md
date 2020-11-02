@@ -14,14 +14,14 @@
 ### Association
 
 - has_many :project_users
-- has_many :projects, through: project_users
+- has_many :projects, through: :project_users
 - has_many :tasks
 
 ## projects テーブル
 
 | Column | Type   | Options    |
 | ------ | ------ | ---------- |
-| name   | string | null: false|
+| title  | string | null: false|
 
 ### Association
 
