@@ -2,7 +2,7 @@
   <div class="title">
     <h3><%= project.title %></h3>
     <div class="edit-btn">
-      <%= link_to "編集", "#" %>
+      <%= link_to "メンバーの追加", edit_project_path(project.id) %>
     </div>
   </div>
   <%= link_to project_path(project.id) do %>  
