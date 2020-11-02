@@ -1,6 +1,13 @@
 class ProjectsController < ApplicationController
 
   def index
+    @user = User.find(current_user.id)
+    @projects = @user.projects
+  end
+
+  def show
+    binding.pry
+    @project = Project.find(params[:id])
   end
 
   def new
@@ -19,7 +26,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, user_ids: [])
+    params.require(:project).permit(:title, user_ids: [])
   end
 
 end

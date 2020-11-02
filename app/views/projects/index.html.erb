@@ -2,9 +2,9 @@
   <%= render "header"%>
   <div class="main">
     <div class="inner">
-      <h1 class="page-heading"><%= "hoge" %>のプロジェクト一覧</h1>
+      <h1 class="page-heading"><%= "#{current_user.nickname}" %>のプロジェクト一覧</h1>
       <div class="card__wrapper">
-        <%= render "main_project"%>
+        <%= render partial: "main_project", collection: @projects, as: :project %>
       </div>
     </div>
   </div>
