@@ -1,5 +1,5 @@
 <div class='chat-room-form'>
-  <h1>Projectのメンバー追加</h1>
+  <h1>Projectメンバーの編集</h1>
   <div class='chat-room-form__field'>
     <div class='chat-room-form__field--left'>
       <h3 class='chat-room-form__label'>プロジェクト名</h3>
@@ -23,7 +23,10 @@
           <% end %>
         </select>
         <% @project.users.each do |u| %>
-          <input name="project[user_ids][]", type="hidden", value=<%= u.id %>>
+          <select name="project[user_ids][]">
+            <option value=<%=u.id%>><%=u.nickname%></option>
+            <option value="">メンバーから外す</option>
+          </select>
         <% end %>
       </div>
     </div>
