@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-
   def index
     @user = User.find(current_user.id)
     @projects = @user.projects
@@ -35,10 +34,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    project = Project.find(params[:id])
+    project.destroy
+    redirect_to root_path
+  end
+
   private
 
   def project_params
     params.require(:project).permit(:title, user_ids: [])
   end
-
 end

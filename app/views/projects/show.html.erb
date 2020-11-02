@@ -4,5 +4,8 @@
     <div class="inner">
       <h1 class="page-heading"><%= @project.title %>の詳細</h1>
     </div>
+    <div class="project-delete">
+      <%= link_to "プロジェクトの終了", project_path(@project), method: :delete %>
+    </div>
   </div>
 </div>
