@@ -43,14 +43,14 @@
 
 ## tasks テーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| task_name        | string     |                                |
-| person_in_charge | string     |                                |
-| plan             | date       |                                |
-| deadline         | date       |                                |
-| user             | references | null: false, foreign_key: true |
-| room             | references | null: false, foreign_key: true |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| task_name           | string     | null: false                    |
+| person_in_charge    | string     |                                |
+| plan                | date       | null: false                    |
+| deadline            | date       |                                |
+| user                | references | null: false, foreign_key: true |
+| project             | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :project
