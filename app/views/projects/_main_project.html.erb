@@ -21,20 +21,22 @@
         <%= "完了"%>
       </div>
     </div>
-    <div class="task-index">
-      <div class="task-name">
-        <%= "ぷろまねの制作ああああああああああああああ" %>
+    <% project.tasks.each do |task| %>
+      <div class="task-index">
+        <div class="task-name">
+          <%= task.task_name %>
+        </div>
+        <div class="person-in-charge">
+          <%= task.person_in_charge %>
+        </div>
+        <div class="plan">
+          <%= task.plan %>
+        </div>
+        <div class="completion_date">
+          <%= task.deadline %>
+        </div>
       </div>
-      <div class="person-in-charge">
-        <%= "柳下 陽介" %>
-      </div>
-      <div class="plan">
-        <%= "11/3" %>
-      </div>
-      <div class="completion_date">
-        <%= "11/2"%>
-      </div>
-    </div>
+    <% end %>
   </div>
   <% end %>
 </div>
