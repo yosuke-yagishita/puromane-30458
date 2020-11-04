@@ -1,11 +1,51 @@
 <div class="wrapper">
-  <%= render "header"%>
+  <%= render partial: "header"%>
   <div class="main">
     <div class="inner">
       <h1 class="page-heading"><%= @project.title %>の詳細</h1>
     </div>
     <div class="project-delete">
       <%= link_to "プロジェクトの終了", project_path(@project), method: :delete %>
+    </div>
+    <div class="cover">
+      <div class="task-index">
+        <div class="task-name">
+          <%= "タスク" %>
+        </div>
+        <div class="person-in-charge">
+          <%= "担当者" %>
+        </div>
+        <div class="plan">
+          <%= "計画" %>
+        </div>
+        <div class="completion_date">
+          <%= "完了"%>
+        </div>
+      </div>
+      <div class="task-index">
+        <%= form_with(model: [@project, @task], local: true) do |f| %>
+          <div class='task_field'>
+            <%= f.label :task_name, "タスク名" %><br />
+            <%= f.text_field :task_name %>
+          </div>
+          <div class='担当者'>
+            <%= f.label :person_in_charge, "" %><br />
+            <%= f.text_field :person_in_charge %>
+          </div>
+          <div class='plan_field'>
+            <%= f.label :plan, "完了予定日" %><br />
+            <%= f.date_field :plan %>
+          </div>
+          <div class='deadline_field'>
+            <%= f.label :deadline, "期限" %><br />
+            <%= f.date_field :deadline %>
+          </div>
+          <div class="actions">
+            <%= f.submit "タスクを作成する", class: :form__btn  %>
+          </div>
+
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

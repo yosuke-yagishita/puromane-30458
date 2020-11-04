@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :project_users
   has_many :projects, through: :project_users
+  has_many :tasks
 
   validates :nickname, presence: true
   NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/.freeze
