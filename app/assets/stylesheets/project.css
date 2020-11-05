@@ -181,7 +181,7 @@ a {
 }
 
 .plan {
-  width: 50px;
+  width: 100px;
   height: 30px;
   line-height: 30px;
   border: 1px solid black;
@@ -189,7 +189,7 @@ a {
 }
 
 .completion_date {
-  width: 50px;
+  width: 100px;
   height: 30px;
   line-height: 30px;
   border: 1px solid black;
@@ -363,4 +363,12 @@ select {
 
 .task-form {
   margin-right: 10px;
+}
+
+.calendar {
+  display: flex;
+}
+
+.schedule-wrapper {
+  display: flex;
 }

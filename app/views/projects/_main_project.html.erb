@@ -29,12 +29,24 @@
         <div class="person-in-charge">
           <%= task.person_in_charge %>
         </div>
-        <div class="plan">
-          <%= task.plan %>
-        </div>
-        <div class="completion_date">
-          <%= task.deadline %>
-        </div>
+        <% if task.plan.present? %>
+          <div class="plan">
+            <%= task.plan.strftime('%m/%d') %>
+          </div>
+        <% else %>
+          <div class="plan">
+            <%= task.plan %>
+          </div>
+        <% end %>
+        <% if task.completion_date.present? %>
+          <div class="completion_date">
+            <%= task.completion_date.strftime('%m/%d') %>
+          </div>
+        <% else %>
+          <div class="completion_date">
+            <%= task.completion_date %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>

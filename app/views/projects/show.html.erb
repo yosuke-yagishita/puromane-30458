@@ -28,8 +28,8 @@
               <%= f.date_field :plan %>
             </div>
             <div class='deadline_field'>
-              <%= f.label :deadline, "期限" %><br />
-              <%= f.date_field :deadline %>
+              <%= f.label :completion_date, "期限" %><br />
+              <%= f.date_field :completion_date %>
             </div>
             <div class="actions">
               <%= f.submit "タスクを作成する", class: :form__btn  %>
@@ -37,23 +37,39 @@
           <% end %>
         </div>
         <div class='schedule-wrapper'>
+          <div class="tax-main">
+            <div class="task-index">
+              <div class="task-name">
+                <%= "タスク" %>
+              </div>
+              <div class="person-in-charge">
+                <%= "担当者" %>
+              </div>
+              <div class="plan">
+                <%= "計画" %>
+              </div>
+              <div class="completion_date">
+                <%= "完了"%>
+              </div>
+            </div>
+            <%= render partial: 'task', collection: @tasks, as: :task %>
+          </div>
           <div class='schedule-main'>
+            <div class=calendar>
+              <% @week_days.each do |day| %>
+                <div class='item'>
+                  <div class='plan'>
+                    <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
+                  </div>
+                  <% if day[:plans].length != 0 %>
+                    <% day[:plans].each do |plan| %>
+                      <div class='plan'><%= plan %></div>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
           </div>
-          <div class="task-index">
-            <div class="task-name">
-              <%= "タスク" %>
-            </div>
-            <div class="person-in-charge">
-              <%= "担当者" %>
-            </div>
-            <div class="plan">
-              <%= "計画" %>
-            </div>
-            <div class="completion_date">
-              <%= "完了"%>
-            </div>
-          </div>
-          <%= render partial: 'task', collection: @tasks, as: :task %>
         </div>
       </div>
     </div>
