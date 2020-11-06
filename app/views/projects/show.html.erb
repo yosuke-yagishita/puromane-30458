@@ -12,27 +12,28 @@
             <%= link_to "プロジェクトの終了", project_path(@project), method: :delete %>
           </div>
         </div>
-      <div class="task-cover">
-        <div class="task-form">
+        <div class="task-cover">
           <%= form_with(model: [@project, @task], local: true) do |f| %>
-            <div class='task_field'>
-              <%= f.label :task_name, "タスク名" %><br />
-              <%= f.text_field :task_name %>
-            </div>
-            <div class='担当者'>
-              <%= f.label :person_in_charge, "" %><br />
-              <%= f.text_field :person_in_charge %>
-            </div>
-            <div class='plan_field'>
-              <%= f.label :plan, "完了予定日" %><br />
-              <%= f.date_field :plan %>
-            </div>
-            <div class='deadline_field'>
-              <%= f.label :completion_date, "期限" %><br />
-              <%= f.date_field :completion_date %>
-            </div>
-            <div class="actions">
-              <%= f.submit "タスクを作成する", class: :form__btn  %>
+            <div class="task-form">
+              <div class='task_field'>
+                <%= f.label :task_name, "タスク名" %><br />
+                <%= f.text_field :task_name %>
+              </div>
+              <div class='担当者'>
+                <%= f.label :person_in_charge, "" %><br />
+                <%= f.text_field :person_in_charge %>
+              </div>
+              <div class='plan_field'>
+                <%= f.label :plan, "完了予定日" %><br />
+                <%= f.date_field :plan %>
+              </div>
+              <div class='deadline_field'>
+                <%= f.label :completion_date, "期限" %><br />
+                <%= f.date_field :completion_date %>
+              </div>
+              <div class="actions">
+                <%= f.submit "タスクを作成する", class: :form__btn  %>
+              </div>
             </div>
           <% end %>
         </div>
@@ -50,6 +51,9 @@
               </div>
               <div class="completion_date">
                 <%= "完了"%>
+              </div>
+              <div class="task-edit">
+                <%= "編集ボタン" %>
               </div>
             </div>
             <%= render partial: 'task', collection: @tasks, as: :task %>

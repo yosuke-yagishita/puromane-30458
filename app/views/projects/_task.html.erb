@@ -23,4 +23,7 @@
       <%= task.completion_date %>
     </div>
   <% end %>
+    <div class="task-edit">
+      <%= link_to '編集', edit_project_task_path(@project, task.id) %>
+    </div>
 </div>

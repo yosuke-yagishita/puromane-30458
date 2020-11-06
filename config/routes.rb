@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: 'projects#index'
   resources :users, only: [:show, :update]
   resources :projects, expect: :index do
-    resources :tasks, only: [:create]
+    resources :tasks, only: [:create, :edit, :update, :destroy]
   end
 end
