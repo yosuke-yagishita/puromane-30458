@@ -2,9 +2,6 @@ a {
   text-decoration: none;
 }
 
-.wrpper {
-  display: flex;
-}
 
 .main-header {
   display: flex;
@@ -124,9 +121,6 @@ a {
   margin: 10px 0;
 }
 
-.edit-btn {
-}
-
 .edit-btn a {
   border: 1px solid darkred;
   background-color: rgba(0, 162, 255, 0.863);
@@ -181,7 +175,7 @@ a {
 }
 
 .plan {
-  width: 100px;
+  width: 80px;
   height: 30px;
   line-height: 30px;
   border: 1px solid black;
@@ -189,7 +183,7 @@ a {
 }
 
 .completion_date {
-  width: 100px;
+  width: 80px;
   height: 30px;
   line-height: 30px;
   border: 1px solid black;
@@ -317,7 +311,6 @@ li {
   float: left;
 }
 .chat-room-user__btn {
-  float: right;
   display: inline-block;
   cursor: pointer;
 }
@@ -350,8 +343,6 @@ select {
 
 /* showのビュー */
 
-.project-title {
-}
 
 .operation-btn {
   display: flex;
