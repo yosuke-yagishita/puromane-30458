@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <%= render partial: "header"%>
+  <%= render partial: "shared/header"%>
   <div class="main">
     <div class="inner">
       <div class="project-title">
@@ -56,7 +56,7 @@
                 <%= "編集ボタン" %>
               </div>
             </div>
-            <%= render partial: 'task', collection: @tasks, as: :task %>
+            <%= render partial: 'shared/task', collection: @tasks, as: :task %>
           </div>
           <div class='schedule-main'>
             <div class=calendar>
