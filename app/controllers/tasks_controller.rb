@@ -20,7 +20,8 @@ def update
   if @task.valid?
     redirect_to project_path(@task.project)
   else
-    redirect_to project_path(@task.project)
+    @project = @task.project
+    render :edit
   end
 end
 
