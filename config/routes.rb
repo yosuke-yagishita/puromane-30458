@@ -2,5 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'projects#index'
   resources :users, only: [:show, :update]
-  resources :projects, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :projects, expect: :index do
+    resources :tasks, only: [:create, :edit, :update, :destroy]
+  end
 end

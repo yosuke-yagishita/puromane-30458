@@ -2,9 +2,6 @@ a {
   text-decoration: none;
 }
 
-.wrpper {
-  display: flex;
-}
 
 .main-header {
   display: flex;
@@ -124,9 +121,6 @@ a {
   margin: 10px 0;
 }
 
-.edit-btn {
-}
-
 .edit-btn a {
   border: 1px solid darkred;
   background-color: rgba(0, 162, 255, 0.863);
@@ -181,7 +175,7 @@ a {
 }
 
 .plan {
-  width: 50px;
+  width: 80px;
   height: 30px;
   line-height: 30px;
   border: 1px solid black;
@@ -189,11 +183,28 @@ a {
 }
 
 .completion_date {
-  width: 50px;
+  width: 80px;
   height: 30px;
   line-height: 30px;
   border: 1px solid black;
   text-align: center;
+}
+
+.task-edit {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.task-edit a {
+  border: 1px solid darkred;
+  background-color: rgba(0, 162, 255, 0.863);
+  color: darkred;
+  padding: 0 10px;
+  border-radius: 3px;
+  box-shadow: 2px 2px black;
 }
 
 h2 {
@@ -300,7 +311,6 @@ li {
   float: left;
 }
 .chat-room-user__btn {
-  float: right;
   display: inline-block;
   cursor: pointer;
 }
@@ -329,4 +339,49 @@ select {
 
 .field_with_errors{
   display: contents;
+}
+
+/* showのビュー */
+
+
+.operation-btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.delete-btn {
+  margin-left: 10px;
+}
+
+.delete-btn a {
+    border: 1px solid darkred;
+    background-color: rgba(0, 162, 255, 0.863);
+    color: darkred;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 2px 2px black;  
+}
+
+.task-cover {
+  color: #253141;
+  text-decoration: none;
+  display: flex;
+}
+
+.task-form {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.actions {
+  padding: 15px;
+}
+
+.calendar {
+  display: flex;
+}
+
+.schedule-wrapper {
+  display: flex;
 }

@@ -1,0 +1,29 @@
+<div class="task-index">
+  <div class="task-name">
+    <%= task.task_name %>
+  </div>
+  <div class="person-in-charge">
+    <%= task.person_in_charge %>
+  </div>
+  <% if task.plan.present? %>
+    <div class="plan">
+      <%= task.plan.strftime('%m/%d') %>
+    </div>
+  <% else %>
+    <div class="plan">
+      <%= task.plan %>
+    </div>
+  <% end %>
+  <% if task.completion_date.present? %>
+    <div class="completion_date">
+      <%= task.completion_date.strftime('%m/%d') %>
+    </div>
+  <% else %>
+    <div class="completion_date">
+      <%= task.completion_date %>
+    </div>
+  <% end %>
+    <div class="task-edit">
+      <%= link_to '編集', edit_project_task_path(@project, task.id) %>
+    </div>
+</div>

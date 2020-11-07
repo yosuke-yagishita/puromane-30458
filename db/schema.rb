@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_11_03_012932) do
     t.string "task_name", null: false
     t.string "person_in_charge"
     t.date "plan"
-    t.date "deadline"
+    t.date "completion_date"
     t.bigint "user_id"
     t.bigint "project_id"
     t.datetime "created_at", precision: 6, null: false
