@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :set_project, only: [:show, :edit, :update]
   def index
     @user = User.find(current_user.id)
     @projects = @user.projects
@@ -6,7 +7,6 @@ class ProjectsController < ApplicationController
 
   def show
     get_week
-    @project = Project.find(params[:id])
     @task = Task.new
     @tasks = @project.tasks
   end
@@ -25,11 +25,9 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
   end
 
   def update
-    @project = Project.find(params[:id])
     if @project.update(project_params)
       redirect_to root_path
     else
@@ -47,6 +45,10 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, user_ids: [])
+  end
+
+  def set_project
+    @project = Project.find(params[:id])
   end
 
   def get_week

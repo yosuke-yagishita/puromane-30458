@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:edit, :update]
 
 def create
   get_week
@@ -13,12 +14,10 @@ def create
 end
 
 def edit
-  @task = Task.find(params[:id])
   @project = @task.project
 end
 
 def update
-  @task = Task.find(params[:id])
   @task.update(task_params)
   if @task.valid?
     redirect_to project_path(@task.project)
@@ -37,6 +36,10 @@ end
 
   def task_params
     params.require(:task).permit(:task_name, :person_in_charge, :plan, :completion_date).merge(user_id: current_user.id, project_id: params[:project_id])
+  end
+
+  def set_task
+    @task = Task.find(params[:id])
   end
 
   def get_week
