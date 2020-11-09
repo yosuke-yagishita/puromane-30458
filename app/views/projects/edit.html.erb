@@ -1,21 +1,21 @@
-<div class='chat-room-form'>
+<div class='project-form'>
   <h1>Projectメンバーの編集</h1>
-  <div class='chat-room-form__field'>
-    <div class='chat-room-form__field--left'>
-      <h3 class='chat-room-form__label'>プロジェクト名</h3>
+  <div class='project-form__field'>
+    <div class='project-form__field--left'>
+      <h3 class='project-form__label'>プロジェクト名</h3>
     </div>
-    <div class='chat-room-form__field--right'>
-      <h3 class='chat__room_name chat-room-form__input'><%= "#{@project.title}"%></h3>
+    <div class='project-form__field--right'>
+      <h3 class='chat__room_name project-form__input'><%= "#{@project.title}"%></h3>
     </div>
   </div>
   <%=form_with model: @project, local: true do |f|%>
-    <div class='chat-room-form__field'>
+    <div class='project-form__field'>
     </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'>
-        <label class='chat-room-form__label' for='chat_room_チャットメンバー'>プロジェクトメンバー</label>
+    <div class='project-form__field'>
+      <div class='project-form__field--left'>
+        <label class='project-form__label' for='chat_room_チャットメンバー'>プロジェクトメンバー</label>
       </div>
-      <div class='chat-room-form__field--right'>
+      <div class='project-form__field--right'>
         <select name="project[user_ids][]">
           <option value="">プロジェクトに参加するユーザーを選択してください</option>
           <% User.all.where.not(id: @project.user_ids).each do |user| %>
@@ -30,10 +30,10 @@
         <% end %>
       </div>
     </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'></div>
-      <div class='chat-room-form__field--right'>
-        <%= f.submit class: 'chat-room-form__action-btn'%>
+    <div class='project-form__field'>
+      <div class='project-form__field--left'></div>
+      <div class='project-form__field--right'>
+        <%= f.submit class: 'project-form__action-btn'%>
       </div>
     </div>
   <% end %>

@@ -238,7 +238,7 @@ li {
   font-size: 13px;
 }
 
-.chat-room-form {
+.project-form {
   width: 980px;
   margin: 60px auto;
   padding: 40px;
@@ -247,54 +247,54 @@ li {
   border-radius: 5px;
   box-sizing: border-box;
 }
-.chat-room-form__errors {
+.project-form__errors {
   margin: 30px 0;
   padding: 20px 40px;
   border: 1px solid #ddd;
   border-radius: 2px;
   text-align: center;
 }
-.chat-room-form__label {
+.project-form__label {
   display: block;
   line-height: 50px;
   font-weight: bold;
   text-align: right;
 }
-.chat-room-form__input {
+.project-form__input {
   float: left;
   width: 100%;
   line-height: 30px;
   padding: 10px 15px;
   box-sizing: border-box;
 }
-.chat-room-form__action-btn {
+.project-form__action-btn {
   display: inline-block;
   padding: 12px 20px;
   color: #fff;
   background-color: #38aef0;
   border: 0;
 }
-.chat-room-form__field {
+.project-form__field {
   margin-top: 30px;
 }
-.chat-room-form__field:after {
+.project-form__field:after {
   content: "";
   clear: both;
   display: block;
 }
-.chat-room-form__field--left {
+.project-form__field--left {
   float: left;
   width: 30%;
   padding-right: 20px;
   padding-left: 20px;
   box-sizing: border-box;
 }
-.chat-room-form__field--right {
+.project-form__field--right {
   float: right;
   width: 70%;
 }
 
-.chat-room-user {
+.project-user {
   padding: 0 15px;
   line-height: 50px;
   font-size: 14px;
@@ -302,26 +302,26 @@ li {
   width: 500px;
   margin: 0 auto;
 }
-.chat-room-user:after {
+.project-user:after {
   content: "";
   clear: both;
   display: block;
 }
-.chat-room-user__name {
+.project-user__name {
   float: left;
 }
-.chat-room-user__btn {
+.project-user__btn {
   display: inline-block;
   cursor: pointer;
 }
-.chat-room-user__btn--add {
+.project-user__btn--add {
   color: #38aef0;
 }
-.chat-room-user__btn--remove {
+.project-user__btn--remove {
   color: #f05050;
 }
 
-.chat-room-user__name a {
+.project-user__name a {
   text-decoration: none;
   color: #38aef0;
 }
