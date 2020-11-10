@@ -1,20 +1,18 @@
 <div class="main-header">
-  <div class="left-header">
-    <div class="app-name">
-      <%= link_to "ぷろまね" , root_path %>
-    </div>
-
-  </div>
-  <div class="right-header">
-    <div class="create-project">
-      <%= link_to "プロジェクトを作成する", new_project_path %>
-    </div>
-    <div class="user-name">
-      <div class="user-name-display">
-        <%= link_to "ユーザー：#{current_user.nickname}", user_path(current_user) %>
+  <div class='header-inner'>
+    <div class="left-header">
+      <div class="app-name">
+        <%= link_to "ぷろまね" , root_path %>
       </div>
-      <div class="logout-btn">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </div>
+    <div class="right-header">
+      <div class="user-name">
+        <div class="user-name-display">
+          <%= link_to "ニックネーム：#{current_user.nickname}", user_path(current_user) %>
+        </div>
+        <div class="logout-btn">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </div>
       </div>
     </div>
   </div>
