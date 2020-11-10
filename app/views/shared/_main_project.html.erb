@@ -1,8 +1,10 @@
 <div class="card">
   <div class="title">
-    <h1><%= project.title %></h1>
-    <div class="edit-btn">
-      <%= link_to "メンバーの追加", edit_project_path(project.id) %>
+    <div class="title-inner">
+      <div class="project-name"><%= project.title %></div>
+      <div class="edit-btn">
+        <%= link_to "メンバーの追加", edit_project_path(project.id) %>
+      </div>
     </div>
   </div>
   <%= link_to project_path(project.id) do %>  
@@ -21,7 +23,7 @@
         <%= "完了"%>
       </div>
     </div>
-    <% project.tasks.each do |task| %>
+    <% project.tasks.order(plan: "ASC").each do |task| %>
       <div class="task-index">
         <div class="task-name">
           <%= task.task_name %>
