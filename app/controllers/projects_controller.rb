@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   def show
     get_week
     @task = Task.new
-    @tasks = @project.tasks
+    @tasks = @project.tasks.order(plan: "ASC")
   end
 
   def new
@@ -60,7 +60,7 @@ class ProjectsController < ApplicationController
     @week_days = []
 
     @project = Project.find(params[:id])
-    tasks = @project.tasks
+    tasks = @project.tasks.order(plan: "ASC")
 
     7.times do |x|
       today_plans = []

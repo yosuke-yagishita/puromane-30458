@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 def create
   get_week
   @task = Task.new(task_params)
-  @tasks = @project.tasks
+  @tasks = @project.tasks.order(plan: "ASC")
   @project = @task.project
   if @task.save
     redirect_to project_path(@task.project)
@@ -50,7 +50,7 @@ end
     @week_days = []
 
     @project = Project.find(params[:project_id])
-    tasks = @project.tasks
+    tasks = @project.tasks.order(plan: "ASC")
 
     7.times do |x|
       today_plans = []
