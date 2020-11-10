@@ -1,25 +1,51 @@
-        <div class="task-cover">
-          <%= form_with(model: [@project, @task], local: true) do |f| %>
-            <div class="task-form">
-              <div class='task_field'>
-                <%= f.label :task_name, "タスク名" %><br />
-                <%= f.text_field :task_name %>
-              </div>
-              <div class='担当者'>
-                <%= f.label :person_in_charge, "" %><br />
-                <%= f.text_field :person_in_charge %>
-              </div>
-              <div class='plan_field'>
-                <%= f.label :plan, "完了予定日" %><br />
-                <%= f.date_field :plan %>
-              </div>
-              <div class='deadline_field'>
-                <%= f.label :completion_date, "期限" %><br />
-                <%= f.date_field :completion_date %>
-              </div>
-              <div class="actions">
-                <%= f.submit "タスクを編集する", class: :form__btn  %>
-              </div>
-            </div>
-          <% end %>
+<div class="wrapper">
+  <%= render partial: "shared/header"%>
+  <div class="main">
+    <div class="inner">
+      <div class="task-title">
+        <h1 class="page-heading"><%= @task.task_name %>の編集</h1>
+        <div class='operation-btn'>
+          <div class="delete-btn">
+            <%= link_to "タスクの終了", project_task_path(@project, @task), method: :delete, data: { confirm: "タスクを終了しますか？" } %>
+          </div>
         </div>
+        <%= form_with(model: [@project, @task], local: true) do |f| %>
+    <div class="task-cover">
+      <div class="task-field">
+        <div class='task-field-label'>
+          <%= f.label :task_name, "タスク名" %>
+        </div>
+        <div class='task-field-input'>
+          <%= f.text_field :task_name, class: "task-input" %>
+        </div>
+      </div>
+      <div class="task-field">
+        <div class='person-in-charge-field-label'>
+          <%= f.label :person_in_charge, "担当者" %>
+        </div>
+        <div class='person-in-charge-field-input'>
+          <%= f.text_field :person_in_charge, class: "person-in-charge-input" %>
+        </div>
+      </div>
+      <div class="task-field">
+        <div class='plan-field-label'>
+          <%= f.label :plan, "計画" %>
+        </div>
+        <div class='plan-field-input'>
+          <%= f.date_field :plan, class: "plan-input" %>
+        </div>
+      </div>
+      <div class="task-field">
+        <div class='completion-date-label'>
+          <%= f.label :completion_date, "完了" %>
+        </div>
+        <div class='completion-date-input'>
+          <%= f.date_field :completion_date, class: "completion-date-input" %>
+        </div>
+      </div>
+      <div class="actions">
+        <%= f.submit "タスクを編集する", class: :form__btn  %>
+      </div>
+    </div>
+  <% end %>
+</div>

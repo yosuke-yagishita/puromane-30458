@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      redirect_to root_path
+      redirect_to project_path(params[:id])
     else
       render :edit
     end

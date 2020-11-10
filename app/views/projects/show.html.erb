@@ -6,12 +6,13 @@
         <h1 class="page-heading"><%= @project.title %>の詳細</h1>
         <div class='operation-btn'>
           <div class="edit-btn">
-            <%= link_to "メンバーの追加", edit_project_path(@project) %>
+            <%= link_to "メンバーの編集", edit_project_path(@project) %>
           </div>
           <div class="delete-btn">
             <%= link_to "プロジェクトの終了", project_path(@project), method: :delete, data: { confirm: "プロジェクトを終了しますか？" } %>
           </div>
         </div>
+      </div>
         <%= form_with(model: [@project, @task], local: true) do |f| %>
           <div class="task-cover">
             <div class="task-field">
@@ -32,7 +33,7 @@
             </div>
             <div class="task-field">
               <div class='plan-field-label'>
-                <%= f.label :plan, "完了予定日" %>
+                <%= f.label :plan, "計画" %>
               </div>
               <div class='plan-field-input'>
                 <%= f.date_field :plan, class: "plan-input" %>
@@ -40,7 +41,7 @@
             </div>
             <div class="task-field">
               <div class='completion-date-label'>
-                <%= f.label :completion_date, "完了日" %>
+                <%= f.label :completion_date, "完了" %>
               </div>
               <div class='completion-date-input'>
                 <%= f.date_field :completion_date, class: "completion-date-input" %>

@@ -28,8 +28,9 @@ def update
 end
 
 def destroy
-  @task.destroy
-  redirect_to project_path(@task.project)
+  task = Task.find(params[:id])
+  task.destroy
+  redirect_to project_path(params[:project_id])
 end
 
   private
