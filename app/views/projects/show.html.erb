@@ -9,51 +9,65 @@
             <%= link_to "メンバーの追加", edit_project_path(@project) %>
           </div>
           <div class="delete-btn">
-            <%= link_to "プロジェクトの終了", project_path(@project), method: :delete %>
+            <%= link_to "プロジェクトの終了", project_path(@project), method: :delete, data: { confirm: "プロジェクトを終了しますか？" } %>
           </div>
         </div>
-        <div class="task-cover">
-          <%= form_with(model: [@project, @task], local: true) do |f| %>
-            <div class="task-form">
-              <div class='task_field'>
-                <%= f.label :task_name, "タスク名" %><br />
-                <%= f.text_field :task_name %>
+        <%= form_with(model: [@project, @task], local: true) do |f| %>
+          <div class="task-cover">
+            <div class="task-field">
+              <div class='task-field-label'>
+                <%= f.label :task_name, "タスク名" %>
               </div>
-              <div class='担当者'>
-                <%= f.label :person_in_charge, "" %><br />
-                <%= f.text_field :person_in_charge %>
-              </div>
-              <div class='plan_field'>
-                <%= f.label :plan, "完了予定日" %><br />
-                <%= f.date_field :plan %>
-              </div>
-              <div class='deadline_field'>
-                <%= f.label :completion_date, "期限" %><br />
-                <%= f.date_field :completion_date %>
-              </div>
-              <div class="actions">
-                <%= f.submit "タスクを作成する", class: :form__btn  %>
+              <div class='task-field-input'>
+                <%= f.text_field :task_name, class: "task-input" %>
               </div>
             </div>
-          <% end %>
-        </div>
+            <div class="task-field">
+              <div class='person-in-charge-field-label'>
+                <%= f.label :person_in_charge, "担当者" %>
+              </div>
+              <div class='person-in-charge-field-input'>
+                <%= f.text_field :person_in_charge, class: "person-in-charge-input" %>
+              </div>
+            </div>
+            <div class="task-field">
+              <div class='plan-field-label'>
+                <%= f.label :plan, "完了予定日" %>
+              </div>
+              <div class='plan-field-input'>
+                <%= f.date_field :plan, class: "plan-input" %>
+              </div>
+            </div>
+            <div class="task-field">
+              <div class='completion-date-label'>
+                <%= f.label :completion_date, "完了日" %>
+              </div>
+              <div class='completion-date-input'>
+                <%= f.date_field :completion_date, class: "completion-date-input" %>
+              </div>
+            </div>
+            <div class="actions">
+              <%= f.submit "タスクを作成する", class: :form__btn  %>
+            </div>
+          </div>
+        <% end %>
         <div class='schedule-wrapper'>
           <div class="tax-main">
             <div class="task-index">
-              <div class="task-name">
+              <div class="task-name tag">
                 <%= "タスク" %>
               </div>
-              <div class="person-in-charge">
+              <div class="person-in-charge tag">
                 <%= "担当者" %>
               </div>
-              <div class="plan">
+              <div class="plan tag">
                 <%= "計画" %>
               </div>
-              <div class="completion_date">
+              <div class="completion_date tag">
                 <%= "完了"%>
               </div>
-              <div class="task-edit">
-                <%= "編集ボタン" %>
+              <div class="task-edit tag">
+                <%= "" %>
               </div>
             </div>
             <%= render partial: 'shared/task', collection: @tasks, as: :task %>
@@ -62,7 +76,7 @@
             <div class=calendar>
               <% @week_days.each do |day| %>
                 <div class='item'>
-                  <div class='plan'>
+                  <div class='plan tag'>
                     <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
                   </div>
                   <% if day[:plans].length != 0 %>
