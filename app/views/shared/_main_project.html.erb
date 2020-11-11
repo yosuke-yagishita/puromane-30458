@@ -1,27 +1,29 @@
 <div class="card">
   <div class="title">
-    <h3><%= project.title %></h3>
-    <div class="edit-btn">
-      <%= link_to "メンバーの追加", edit_project_path(project.id) %>
+    <div class="title-inner">
+      <div class="project-name"><%= project.title %></div>
+      <div class="edit-btn">
+        <%= link_to "メンバーの編集", edit_project_path(project.id) %>
+      </div>
     </div>
   </div>
   <%= link_to project_path(project.id) do %>  
   <div class="cover">
     <div class="task-index">
-      <div class="task-name">
+      <div class="task-name tag">
         <%= "タスク" %>
       </div>
-      <div class="person-in-charge">
+      <div class="person-in-charge tag">
         <%= "担当者" %>
       </div>
-      <div class="plan">
+      <div class="plan tag">
         <%= "計画" %>
       </div>
-      <div class="completion_date">
+      <div class="completion_date tag">
         <%= "完了"%>
       </div>
     </div>
-    <% project.tasks.each do |task| %>
+    <% project.tasks.order(plan: "ASC").each do |task| %>
       <div class="task-index">
         <div class="task-name">
           <%= task.task_name %>

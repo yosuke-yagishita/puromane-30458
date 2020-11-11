@@ -1,10 +1,13 @@
 <div class="wrapper">
-  <%= render partial: "header"%>
+  <%= render partial: "shared/header"%>
   <div class="main">
     <div class="inner">
+      <div class="create-project">
+        <%= link_to "新規プロジェクト作成", new_project_path %>
+      </div>
       <h1 class="page-heading"><%= "#{current_user.nickname}" %>のプロジェクト一覧</h1>
       <div class="card__wrapper">
-        <%= render partial: "main_project", collection: @projects, as: :project %>
+        <%= render partial: "shared/main_project", collection: @projects, as: :project %>
       </div>
     </div>
   </div>

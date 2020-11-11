@@ -1,21 +1,22 @@
-<div class='chat-room-form'>
-  <h1>新規チャットルーム</h1>
+<%= render partial: "shared/header"%>
+<div class='project-form'>
+  <h1>新規プロジェクト</h1>
   <%=form_with model: @project, local: true do |f|%>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'>
-        <%= f.label :プロジェクト名, class: 'chat-room-form__label'%>
+    <div class='project-form__field'>
+      <div class='project-form__field--left'>
+        <%= f.label :プロジェクト名, class: 'project-form__label'%>
       </div>
-      <div class='chat-room-form__field--right'>
-        <%= f.text_field :title, class: 'chat__room_name chat-room-form__input', placeholder: 'プロジェクト名を入力してください'%>
+      <div class='project-form__field--right'>
+        <%= f.text_field :title, class: 'project__room_name project-form__input', placeholder: 'プロジェクト名を入力してください'%>
       </div>
     </div>
-    <div class='chat-room-form__field'>
+    <div class='project-form__field'>
     </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'>
-        <label class='chat-room-form__label' for='chat_room_チャットメンバー'>プロジェクトメンバー</label>
+    <div class='project-form__field'>
+      <div class='project-form__field--left'>
+        <label class='project-form__label' for='chat_room_チャットメンバー'>プロジェクトメンバー</label>
       </div>
-      <div class='chat-room-form__field--right'>
+      <div class='project-form__field--right'>
         <select name="project[user_ids][]">
           <option value="">プロジェクトに参加するユーザーを選択してください</option>
           <% User.all.where.not(id: current_user.id).each do |user| %>
@@ -25,10 +26,10 @@
         <input name="project[user_ids][]" type="hidden" value=<%=current_user.id%>>
       </div>
     </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'></div>
-      <div class='chat-room-form__field--right'>
-        <%= f.submit class: 'chat-room-form__action-btn'%>
+    <div class='project-form__field'>
+      <div class='project-form__field--left'></div>
+      <div class='project-form__field--right'>
+        <%= f.submit "プロジェクト作成", class: 'project-form__action-btn'%>
       </div>
     </div>
   <% end %>

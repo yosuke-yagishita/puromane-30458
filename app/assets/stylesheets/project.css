@@ -1,17 +1,19 @@
-a {
-  text-decoration: none;
+/* ヘッダー */
+.main-header {
+  background-color: #2f3e51;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-
-.main-header {
+.header-inner {
+  width: 80%;
   display: flex;
-  height: 100px;
+  justify-content: space-between;
 }
 
 .left-header {
-  background-color: #253141;
-  width: 300px;
-  height: 100px;
+  height: 80px;
   padding: 0 20px;
   display: flex;
   justify-content: center;
@@ -30,35 +32,47 @@ a {
 
 .right-header {
   background-color: #2f3e51;
-  height: 100px;
-  width: calc(100% - 300px);
-  padding: 0 40px;
-  display: flex;
-  justify-content: space-between;
+  height: 80px;
 }
 
 .user-name {
   color: #fafafa;
-  width: 300px;
   text-align: center;
+  display: flex;
+  justify-content: end;
 }
 
 .user-name-display {
-  margin-top:  20px;
+  padding-top: 30px;
 }
 
 .user-name-display a {
   color: #fafafa;
   font-size: 20px;
+  margin-right: 20px;
 }
 
 .logout-btn {
-  margin-top:  10px;
+  padding-top: 33px;
 }
 
 .logout-btn a {
-  color: #f05050;
-  font-size: 12px;
+  background-color: #fafafa;
+  color: black;
+  padding: 7px 14px;
+  font-size: 14px;
+}
+
+/* インデックス */
+.main {
+  background-color: #fafafa;
+  min-height: calc(100vh - 80px);
+
+}
+
+.inner {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .create-project {
@@ -69,20 +83,20 @@ a {
 
 
 .create-project a {
-  border: 1px solid darkred;
-  background-color: rgba(0, 162, 255, 0.863);
-  color: darkred;
-  width: 100%;
+  border: 1px solid black;
+  background-color: #2f3e51;
+  color: #fafafa;
+  width: 40%;
   border-radius: 10px;
-  margin: 20px;
-  font-size: 34px;
-  line-height: 60px;
-  letter-spacing: 20px;
+  margin: 10px auto;
+  font-size: 24px;
+  line-height: 48px;
+  letter-spacing: 10px;
   box-shadow: 5px 5px black;
 }
 
 .create-project :hover {
-  background-color: rgb(0, 191, 255);
+  background-color:  #44576ec9;
 }
 
 .create-project :active {
@@ -92,54 +106,50 @@ a {
   left: 5px;
 }
 
-.main {
-  background-color: #fafafa;
-}
-
-.inner {
-  width: 1024px;
-  margin: 0 auto;
-}
-
 .page-heading {
   font-size: 30px;
-  margin-bottom: 28px;
+  margin: 14px 0;
 }
 
+/* 部分テンプレートproject */
 .card__wrapper {
   background-color: #fafafa;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  min-height: calc(100vh - 188px);
 }
 
 .title {
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: 10px 0;
 }
 
-.edit-btn a {
-  border: 1px solid darkred;
-  background-color: rgba(0, 162, 255, 0.863);
-  color: darkred;
-  padding: 5px;
-  border-radius: 3px;
-  box-shadow: 2px 2px black;
+.title-inner {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.edit-btn :active {
-  box-shadow: none;
-  position: relative;
-  top: 2px;
-  left: 2px;
+.project-name {
+  width: 70%;
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+.edit-btn a {
+  border: 1px solid black;
+  background-color: #fafafa;
+  color: black;
+  padding: 5px;
+  border-radius: 3px;
 }
 
 .card {
   width: calc((100% - 50px) / 2);
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
   height: 250px;
   overflow: scroll;
 }
@@ -190,6 +200,11 @@ a {
   text-align: center;
 }
 
+.tag {
+  background-color: #2f3e51;
+  color: #fafafa;
+}
+
 .task-edit {
   width: 100px;
   height: 30px;
@@ -199,12 +214,11 @@ a {
 }
 
 .task-edit a {
-  border: 1px solid darkred;
-  background-color: rgba(0, 162, 255, 0.863);
-  color: darkred;
-  padding: 0 10px;
+  border: 1px solid black;
+  background-color: #fafafa;
+  color: black;
+  padding: 3px 15px;
   border-radius: 3px;
-  box-shadow: 2px 2px black;
 }
 
 h2 {
@@ -220,12 +234,6 @@ h1 {
   text-align: center;
 }
 
-h2 {
-  margin-bottom: 10px;
-  color: #f05050;
-  font-size: 14px;
-}
-
 ul {
   margin: 0;
   padding: 0;
@@ -238,7 +246,7 @@ li {
   font-size: 13px;
 }
 
-.chat-room-form {
+.project-form {
   width: 980px;
   margin: 60px auto;
   padding: 40px;
@@ -247,54 +255,54 @@ li {
   border-radius: 5px;
   box-sizing: border-box;
 }
-.chat-room-form__errors {
+.project-form__errors {
   margin: 30px 0;
   padding: 20px 40px;
   border: 1px solid #ddd;
   border-radius: 2px;
   text-align: center;
 }
-.chat-room-form__label {
+.project-form__label {
   display: block;
   line-height: 50px;
   font-weight: bold;
   text-align: right;
 }
-.chat-room-form__input {
+.project-form__input {
   float: left;
   width: 100%;
   line-height: 30px;
   padding: 10px 15px;
   box-sizing: border-box;
 }
-.chat-room-form__action-btn {
+.project-form__action-btn {
   display: inline-block;
   padding: 12px 20px;
   color: #fff;
   background-color: #38aef0;
   border: 0;
 }
-.chat-room-form__field {
+.project-form__field {
   margin-top: 30px;
 }
-.chat-room-form__field:after {
+.project-form__field:after {
   content: "";
   clear: both;
   display: block;
 }
-.chat-room-form__field--left {
+.project-form__field--left {
   float: left;
   width: 30%;
   padding-right: 20px;
   padding-left: 20px;
   box-sizing: border-box;
 }
-.chat-room-form__field--right {
+.project-form__field--right {
   float: right;
   width: 70%;
 }
 
-.chat-room-user {
+.project-user {
   padding: 0 15px;
   line-height: 50px;
   font-size: 14px;
@@ -302,26 +310,26 @@ li {
   width: 500px;
   margin: 0 auto;
 }
-.chat-room-user:after {
+.project-user:after {
   content: "";
   clear: both;
   display: block;
 }
-.chat-room-user__name {
+.project-user__name {
   float: left;
 }
-.chat-room-user__btn {
+.project-user__btn {
   display: inline-block;
   cursor: pointer;
 }
-.chat-room-user__btn--add {
+.project-user__btn--add {
   color: #38aef0;
 }
-.chat-room-user__btn--remove {
+.project-user__btn--remove {
   color: #f05050;
 }
 
-.chat-room-user__name a {
+.project-user__name a {
   text-decoration: none;
   color: #38aef0;
 }
@@ -355,23 +363,43 @@ select {
 }
 
 .delete-btn a {
-    border: 1px solid darkred;
-    background-color: rgba(0, 162, 255, 0.863);
-    color: darkred;
-    padding: 5px;
-    border-radius: 3px;
-    box-shadow: 2px 2px black;  
+  border: 1px solid black;
+  background-color: #fafafa;
+  color: black;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.delete-btn :hover {
+  background-color: red;
 }
 
 .task-cover {
-  color: #253141;
-  text-decoration: none;
   display: flex;
 }
 
-.task-form {
-  margin-bottom: 10px;
-  display: flex;
+.task-input {
+  width: 200px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.person-in-charge-input {
+  width: 100px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.plan-input {
+  width: 180px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.completion-date-input {
+  width: 180px;
+  height: 30px;
+  margin-right: 10px;
 }
 
 .actions {
