@@ -2,30 +2,80 @@
 <div class="main">
   <div class="inner">
     <div class="user__wrapper">
-      <h2 class="page-heading">
+      <h1 class="page-heading">
         <%= "#{@user.nickname}さんの情報"%>
-      </h2>
-      <div class="user-edit">
+      </h1>
+      <div class="user-inner">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th class="table__col1">Family name</th>
+              <td class="table__col2"><%= @user.family_name %></td>
+            </tr>
+            <tr>
+              <th class="table__col1">First name</th>
+              <td class="table__col2"><%= @user.first_name %></td>
+            </tr>
+            <tr>
+              <th class="table__col1">Email</th>
+              <td class="table__col2"><%= @user.email %></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th class="table__col1">性</th>
-            <td class="table__col2"><%= @user.family_name %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">名</th>
-            <td class="table__col2"><%= @user.first_name %></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 class="page-heading">
-        <%= "#{@user.nickname}さんのプロジェクト"%>
-      </h2>
-      <div class="user__card">
-        <%# 部分テンプレートでそのユーザーが投稿したプロジェクト投稿一覧を表示する %>
-        <%= "部分テンプレート" %>
+      <h1 class="page-heading">
+        <%= "#{@user.nickname}さんの登録したタスク"%>
+      </h1>
+      <div class="tax-main">
+        <div class="task-index">
+          <div class="project tag">
+            <%= "プロジェクト名" %>
+          </div>
+          <div class="task-name tag">
+            <%= "タスク" %>
+          </div>
+          <div class="person-in-charge tag">
+            <%= "担当者" %>
+          </div>
+          <div class="plan tag">
+            <%= "計画" %>
+          </div>
+          <div class="completion_date tag">
+            <%= "完了"%>
+          </div>
+        </div>
       </div>
+      <% @tasks.order(plan: "ASC").each do |task| %>
+        <div class="task-index">
+          <div class="project">
+            <%= link_to task.project.title, project_path(task.project) %>
+          </div>
+          <div class="task-name">
+            <%= task.task_name %>
+          </div>
+          <div class="person-in-charge">
+            <%= task.person_in_charge %>
+          </div>
+          <% if task.plan.present? %>
+            <div class="plan">
+              <%= task.plan.strftime('%m/%d') %>
+            </div>
+          <% else %>
+            <div class="plan">
+              <%= task.plan %>
+            </div>
+          <% end %>
+          <% if task.completion_date.present? %>
+            <div class="completion_date">
+              <%= task.completion_date.strftime('%m/%d') %>
+            </div>
+          <% else %>
+            <div class="completion_date">
+              <%= task.completion_date %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
