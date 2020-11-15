@@ -22,7 +22,7 @@
           <% end %>
         </select>
         <% @project.users.each do |u| %>
-          <select name="project[user_ids][]" id="user_edit">
+          <select name="project[user_ids][]" id="user_edit_<%=u.id%>">
             <option value=<%=u.id%>><%=u.nickname%></option>
             <option value="">メンバーから外す</option>
           </select>
@@ -32,7 +32,7 @@
     <div class='project-form__field'>
       <div class='project-form__field--left'></div>
       <div class='project-form__field--right'>
-        <%= f.submit class: 'project-form__action-btn'%>
+        <%= f.submit "プロジェクトの編集", class: 'project-form__action-btn'%>
       </div>
     </div>
   <% end %>
