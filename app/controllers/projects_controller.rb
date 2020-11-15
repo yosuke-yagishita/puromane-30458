@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
   
   def index
     @user = User.find(current_user.id)
@@ -10,6 +10,13 @@ class ProjectsController < ApplicationController
     get_week
     @task = Task.new
     @tasks = @project.tasks.order(plan: "ASC")
+    @project.users.ids.each do |user_id|
+      if current_user.id == user_id
+        return
+      else
+        redirect_to action: :index
+      end
+    end
   end
 
   def new
@@ -26,6 +33,13 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project.users.ids.each do |user_id|
+      if current_user.id == user_id
+        return
+      else
+        redirect_to action: :index
+      end
+    end
   end
 
   def update
@@ -37,9 +51,15 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    project = Project.find(params[:id])
-    project.destroy
-    redirect_to root_path
+    @project.users.ids.each do |user_id|
+      if current_user.id == user_id
+        project = Project.find(params[:id])
+        project.destroy
+        redirect_to root_path
+      else
+        redirect_to action: :index
+      end
+    end
   end
 
   private
