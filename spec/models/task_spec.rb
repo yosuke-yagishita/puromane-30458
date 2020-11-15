@@ -31,17 +31,17 @@ RSpec.describe Task, type: :model do
       it 'task_nameが存在しないと保存ができないこと' do
         @task.task_name = nil
         @task.valid?
-        expect(@task.errors.full_messages).to include("Task name translation missing: ja.activerecord.errors.models.task.attributes.task_name.blank")
+        expect(@task.errors.full_messages).to include("Task name can't be blank")
       end
       it 'userが紐づいていないと保存できないこと' do
         @task.user = nil
         @task.valid?
-        expect(@task.errors.full_messages).to include("User translation missing: ja.activerecord.errors.models.task.attributes.user.required")
+        expect(@task.errors.full_messages).to include("User must exist")
       end
       it 'projectが紐づいていないと保存できないこと' do
         @task.project = nil
         @task.valid?
-        expect(@task.errors.full_messages).to include("Project translation missing: ja.activerecord.errors.models.task.attributes.project.required")
+        expect(@task.errors.full_messages).to include("Project must exist")
       end
     end
   end
