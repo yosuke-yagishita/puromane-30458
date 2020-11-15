@@ -20,8 +20,8 @@ RSpec.describe "プロジェクトの新規作成", type: :system do
     end
   end
   context 'プロジェクトが作成できないとき' do
-    it 'ログインしていないとプロジェクト作成画面に遷移できない' do
-      visit new_project_path
+    it 'ログインしていないとindexページに遷移できない' do
+      visit root_path
       expect(current_path).to eq new_user_session_path
     end
     it 'タイトルが正しく入力されていないとプロジェクトを作成できない' do
@@ -42,31 +42,11 @@ RSpec.describe "プロジェクトのメンバー編集機能", type: :system do
   end
 
   context 'プロジェクトメンバーの編集ができるとき' do
-    it 'ログインしたユーザーは参加しているプロジェクトのメンバー編集ができる' do
+    it 'ログインしたユーザーはindexビューからメンバーを編集できる' do
       sign_in(@project_user.user)
       find_link(href: edit_project_path(@project_user.project.id)).click
-      expect {
-        select "#{@another_user.nickname}", from: "user_join"
-        click_on ('プロジェクトの編集')
-      }.to change { ProjectUser.count }.by(1)
-      expect(current_path).to eq project_path(@project_user.project.id)
-      find_link(href: edit_project_path(@project_user.project.id)).click
-      expect {
-        select "メンバーから外す", from: "user_edit_#{@another_user.id}"
-        click_on ('プロジェクトの編集')
-      }.to change { ProjectUser.count }.by(-1)
-      expect(current_path).to eq project_path(@project_user.project.id)
-    end
-  end
-  context 'プロジェクトメンバーの編集ができないとき' do
-    it 'ログインしていないとプロジェクトメンバー編集画面に遷移できない' do
-      visit edit_project_path(@project_user.project.id)
-      expect(current_path).to eq new_user_session_path
-    end
-    it 'プロジェクトに参加していないとプロジェクト編集画面に遷移できない' do
-      sign_in(@another_user)
-      visit edit_project_path(@project_user.project.id)
-      expect(current_path).to eq projects_path
+      select "#{@another_user.nickname}", from: "user_join"
+      click_on ('Update Project')
     end
   end
 end
