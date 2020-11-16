@@ -66,7 +66,7 @@ context 'プロジェクトメンバーの編集ができないとき' do
   it 'プロジェクトに参加していないとプロジェクト編集画面に遷移できない' do
     sign_in(@another_user)
     visit edit_project_path(@project_user.project.id)
-    expect(current_path).to eq projects_path
+    expect(current_path).to eq root_path
     end
   end
 end
@@ -86,5 +86,6 @@ RSpec.describe "プロジェクトの削除機能", type: :system do
       # confirmダイアログにアクセプトしたあとに表示が消えていることを確認
       expect(page).to have_no_content "プロジェクトを終了しますか？"
     }.to change { Task.count }.by(-5)
+    expect(current_path).to eq root_path
   end
 end
