@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @user = User.find(current_user.id)
     @projects = @user.projects
@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   def show
     get_week
     @task = Task.new
-    @tasks = @project.tasks.order(plan: "ASC")
+    @tasks = @project.tasks.order(plan: 'ASC')
     @project.users.ids.each do |user_id|
       if current_user.id == user_id
         return
@@ -57,7 +57,7 @@ class ProjectsController < ApplicationController
         project.destroy
         redirect_to root_path
       else
-        redirect_to root_path
+        render :index
       end
     end
   end
@@ -73,14 +73,14 @@ class ProjectsController < ApplicationController
   end
 
   def get_week
-    wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
+    wdays = ['(日)', '(月)', '(火)', '(水)', '(木)', '(金)', '(土)']
 
     @todays_date = Date.today
 
     @week_days = []
 
     @project = Project.find(params[:id])
-    tasks = @project.tasks.order(plan: "ASC")
+    tasks = @project.tasks.order(plan: 'ASC')
 
     7.times do |x|
       today_plans = []
@@ -97,10 +97,8 @@ class ProjectsController < ApplicationController
       end
 
       wday_num = Date.today.wday + x
-      if wday_num >= 7 then
-        wday_num = wday_num - 7
-      end
-      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: today_plans, wday: wdays[wday_num]}
+      wday_num -= 7 if wday_num >= 7
+      days = { month: (@todays_date + x).month, date: (@todays_date + x).day, plans: today_plans, wday: wdays[wday_num] }
       @week_days.push(days)
     end
   end
