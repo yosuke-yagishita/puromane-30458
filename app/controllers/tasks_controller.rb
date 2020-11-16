@@ -18,10 +18,9 @@ class TasksController < ApplicationController
     @project.users.ids.each do |user_id|
       if current_user.id == user_id
         return
-      else
-        redirect_to root_path
       end
     end
+    redirect_to root_path
   end
 
   def update

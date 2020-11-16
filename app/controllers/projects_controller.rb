@@ -13,10 +13,9 @@ class ProjectsController < ApplicationController
     @project.users.ids.each do |user_id|
       if current_user.id == user_id
         return
-      else
-        redirect_to root_path
       end
     end
+    redirect_to root_path
   end
 
   def new
@@ -36,10 +35,9 @@ class ProjectsController < ApplicationController
     @project.users.ids.each do |user_id|
       if current_user.id == user_id
         return
-      else
-        redirect_to root_path
       end
     end
+    redirect_to root_path
   end
 
   def update
@@ -56,10 +54,10 @@ class ProjectsController < ApplicationController
         project = Project.find(params[:id])
         project.destroy
         redirect_to root_path
-      else
-        render :index
+        return
       end
     end
+    render :index
   end
 
   private
