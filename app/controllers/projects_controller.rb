@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
       if current_user.id == user_id
         return
       else
-        redirect_to action: :index
+        redirect_to root_path
       end
     end
   end
@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
       if current_user.id == user_id
         return
       else
-        redirect_to action: :index
+        redirect_to root_path
       end
     end
   end
@@ -57,7 +57,7 @@ class ProjectsController < ApplicationController
         project.destroy
         redirect_to root_path
       else
-        redirect_to action: :index
+        redirect_to root_path
       end
     end
   end
