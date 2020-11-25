@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: puromane_30458_production
-  username: puromane_30458
-  password: <%= ENV['PUROMANE_30458_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
