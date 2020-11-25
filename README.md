@@ -10,7 +10,6 @@
 - タスクの計画日及び完了日の表への出力
 - 自信の登録したタスクの一覧表示
 
-
 # URL
 - https://puromane-30458.herokuapp.com/
 
