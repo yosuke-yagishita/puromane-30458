@@ -128,15 +128,19 @@
 }
 
 .title-inner {
-  width: 60%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
 }
 
 .project-name {
-  width: 70%;
+  width: 50%;
   overflow: scroll;
   white-space: nowrap;
+}
+
+.edit-btn {
+  width: 150px;
 }
 
 .edit-btn a {
