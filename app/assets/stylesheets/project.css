@@ -170,7 +170,7 @@
 }
 
 .task-name {
-  width: 200px;
+  width: 60%;
   height: 30px;
   line-height: 30px;
   border: 1px solid black;
@@ -408,6 +408,10 @@ select {
 
 .actions {
   padding: 15px;
+}
+
+.task-main {
+  width: 900px;
 }
 
 .calendar {
