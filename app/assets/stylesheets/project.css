@@ -128,15 +128,19 @@
 }
 
 .title-inner {
-  width: 60%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
 }
 
 .project-name {
-  width: 70%;
+  width: 50%;
   overflow: scroll;
   white-space: nowrap;
+}
+
+.edit-btn {
+  width: 150px;
 }
 
 .edit-btn a {
@@ -166,7 +170,7 @@
 }
 
 .task-name {
-  width: 200px;
+  width: 60%;
   height: 30px;
   line-height: 30px;
   border: 1px solid black;
@@ -404,6 +408,10 @@ select {
 
 .actions {
   padding: 15px;
+}
+
+.task-main {
+  width: 900px;
 }
 
 .calendar {
