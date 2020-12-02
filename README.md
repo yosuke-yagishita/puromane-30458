@@ -11,7 +11,11 @@
 - 自信の登録したタスクの一覧表示
 
 # URL
-- https://puromane-30458.herokuapp.com/
+- 54.64.201.212
+
+# Basic認証
+- ID:admin
+- pass:2222
 
 # テスト用アカウント
 ## ユーザー１
